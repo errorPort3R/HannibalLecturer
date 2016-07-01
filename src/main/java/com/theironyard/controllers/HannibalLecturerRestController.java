@@ -25,23 +25,16 @@ public class HannibalLecturerRestController
     @Autowired
     ReviewRepository reviews;
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String index(Model model)
-    {
-        return "index";
-    }
-
-    @RequestMapping(path = "/show-lecturers", method = RequestMethod.GET)
+    @RequestMapping(path = "/lecturers", method = RequestMethod.GET)
     public Iterable<Lecturer> showLecturers()
     {
         return lecturers.findAll();
     }
 
-    @RequestMapping(path = "/show-reviews", method = RequestMethod.GET)
+    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
     public Iterable<Review> showReviews(Model model, int lecturerId)
     {
         return reviews.findByLecturer(lecturerId);
     }
-
 
 }

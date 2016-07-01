@@ -1,13 +1,12 @@
 package com.theironyard.entities;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by jeffryporter on 7/1/16.
  */
+@Entity
+@Table(name = "reviews")
 public class Review
 {
     @Id
