@@ -17,7 +17,7 @@ public class Review
     private String author;
 
     @Column(nullable = false)
-    private String comment;
+    private String text;
 
     @Column(nullable = false)
     private boolean isGood;
@@ -29,10 +29,10 @@ public class Review
     {
     }
 
-    public Review(String author, String comment, boolean isGood, Lecturer lecturer)
+    public Review(String author, String text, boolean isGood, Lecturer lecturer)
     {
         this.author = author;
-        this.comment = comment;
+        this.text = text;
         this.isGood = isGood;
         this.lecturer = lecturer;
     }
@@ -57,14 +57,14 @@ public class Review
         this.author = author;
     }
 
-    public String getComment()
+    public String getText()
     {
-        return comment;
+        return text;
     }
 
-    public void setComment(String comment)
+    public void setText(String text)
     {
-        this.comment = comment;
+        this.text = text;
     }
 
     public boolean isGood()

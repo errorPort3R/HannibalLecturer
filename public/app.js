@@ -98,7 +98,7 @@ var hanLec = {
   },
   getRatingInfo: function() {
     var author = $('input[name="author"]').val();
-    var text = $('input[name="comment"]').val();
+    var text = $('input[name="text"]').val();
     var isGood = document.getElementById('isGood').checked;
     var lecturerId = $('.create-rating').find('span.hidden').text();
     return {
