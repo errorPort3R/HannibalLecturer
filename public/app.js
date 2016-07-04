@@ -73,12 +73,13 @@ var hanLec = {
     })
   },
   createLecturer: function(lecturer) {
-    $.ajax({
+    $.post({
+      contentType: "application/json; charset=utf-8",
       method: 'POST',
-      url: hanLec.url.createLecturer,
-      data: lecturer,
-      success: function(createdLecturer) {
-        console.log("CREATED LECTURER", createdLecturer);
+      url: "/lecturers",
+      data: JSON.stringify(lecturer),
+      success(data) {
+        console.log("CREATED LECTURER", createLecturer);
       },
       error: function(err) {
         console.log("not workee", err);
@@ -114,12 +115,13 @@ var hanLec = {
 
   },
   createRating: function(rating) {
-    $.ajax({
+    $.post({
+      contentType: "application/json; charset=utf-8",
       method: 'POST',
-      url: hanLec.url.createReview,
-      data: rating,
-      success: function(data) {
-        console.log(data);
+      url: "/reviews",
+      data: JSON.stringify(rating),
+      success(data) {
+        console.log("Created Review", createRating);
       },
       error: function(data) {
         console.log("ERR",data);

@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ReviewRepository extends CrudRepository<Review, Integer>
 {
-    public Iterable<Review> findByLecturer(Integer lecturerId);
+    public Iterable<Review> findByLecturer(Lecturer lecturer);
 }

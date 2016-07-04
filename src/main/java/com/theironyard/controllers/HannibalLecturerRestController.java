@@ -6,6 +6,7 @@ import com.theironyard.services.LecturerRepository;
 import com.theironyard.services.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,23 @@ public class HannibalLecturerRestController
     @RequestMapping(path = "/reviews", method = RequestMethod.GET)
     public Iterable<Review> showReviews(Model model, int lecturerId)
     {
-        return reviews.findByLecturer(lecturerId);
+        Lecturer lecturer = lecturers.findOne(lecturerId);
+        return reviews.findByLecturer(lecturer);
+    }
+
+    @RequestMapping(path = "/lecturers", method = RequestMethod.POST)
+    public String createLecturer(@RequestBody Lecturer lecturer)
+    {
+        lecturers.save(lecturer);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/reviews", method = RequestMethod.POST)
+    public String createReview(@RequestBody Review review)
+    {
+
+        reviews.save(review);
+        return "redirect:/";
     }
 
 }
